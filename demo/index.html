@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{ name }}</title>
+  </head>
+  <script src="./vue.js"></script>
+  <script src="../dist/countdown.js"></script>
+  <script>
+    let Countdown = window.countdown.default;
+  </script>
+  <body>
+    <div id="app"></div>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      components: {
+        Countdown
+      },
+      template: `
+        <div id="app">
+          <!-- auto mode -->
+          <countdown ref="countdown" :size="160" :time="10" />
+          <!-- manual mode -->
+          <countdown ref="countdown-manual" :size="160" :time="10" mode="manual" />
+          <!-- static mode -->
+          <countdown ref="countdown-static" :size="160" :time="10" mode="static" />
+          <button @click="play">auto</button>
+          <button @click="setTime">manual</button>
+          <button @click="setStaticTime">static</button>
+        </div>
+      `,
+      methods: {
+        play() {
+          this.$refs['countdown'].play();
+        },
+
+        setTime() {
+          let countdown = this.$refs['countdown-manual'];
+          let time = 10;
+          countdown.setTime(time);
+          let timer = setInterval(() => {
+            time--;
+            if (time === 0) {
+              countdown.setTime(time);
+              clearInterval(timer);
+              return;
+            }
+            countdown.setTime(time);
+          }, 1000);
+        },
+
+        setStaticTime() {
+          let time = 8;
+          this.$refs['countdown-static'].setStaticTime(time);
+        }
+      }
+    });
+  </script>
+</html>

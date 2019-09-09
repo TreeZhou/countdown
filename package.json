@@ -1,0 +1,44 @@
+{
+  "name": "@TreeZhou/countdown",
+  "version": "1.0.0",
+  "description": "A simple countdown component for vue js 2.0",
+  "main": "./dist/countdown.min.js",
+  "scripts": {
+    "build": "rimraf dist && npm run build-no-min && npm run build-min",
+    "build-min": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.js",
+    "build-no-min": "webpack --config ./build/webpack.config.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TreeZhou/countdown.git"
+  },
+  "author": "527533739@qq.com",
+  "keywords": [
+    "Countdown",
+    "timer",
+    "vue countdown"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "path": "^0.12.7",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^1.1.1",
+    "vue-loader": "^15.7.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.8",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.2"
+  }
+}
