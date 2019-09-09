@@ -1,5 +1,5 @@
 {
-  "name": "@TreeZhou/countdown",
+  "name": "@tree-zhou/countdown",
   "version": "1.0.0",
   "description": "A simple countdown component for vue js 2.0",
   "main": "./dist/countdown.min.js",

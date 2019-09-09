@@ -13,14 +13,18 @@
 <countdown ref="countdown-manual" :size="160" :time="10" mode="manual" />
 <!-- static mode -->
 <countdown ref="countdown-static" :size="160" :time="10" mode="static" />
+
+<button @click="play">auto</button>
+<button @click="setTime">manual</button>
+<button @click="setStaticTime">static</button>
 ```
 
 ```js
-import Countdown from '@TreeZhou/countdown';
+import Countdown from '@tree-zhou/countdown';
 export default {
-  components:{
+  components: {
     Countdown
-  }
+  },
   methods: {
     play() {
       this.$refs['countdown'].play();
@@ -57,8 +61,8 @@ export default {
 | size          | number | true  | -                      | -       | 组件尺寸，单位 px                                                                    |
 | mode          | string | false | auto、manual、static、 | auto    | auto:自动倒计时； manual：由父组件设定定时器传入要显示的时间； static:显示设置的时间 |
 | bg-color      | string | false | -                      | #fff    | 背景颜色                                                                             |
-| interval      | number | false | -                      | #0e65ff | 间隔时间,单位 ms                                                                     |
-| annulus-color | string | false | -                      | -       | 圆环色                                                                               |
+| interval      | number | false | -                      | 1000    | 间隔时间,单位 ms                                                                     |
+| annulus-color | string | false | -                      | #0e65ff | 圆环色                                                                               |
 | font-color    | string | false | -                      | #000    | 字体色                                                                               |
 
 ## Methods
@@ -72,20 +76,20 @@ export default {
 
 | 方法名 | 参数 | 说明                                                               | 返回    |
 | ------ | ---- | ------------------------------------------------------------------ | ------- |
-| play   | -    | 开始倒计时,倒计时结束时调用 promise 的 resole;只在 auto 模式下生效 | promise |
-| pause  | -    | 暂停倒计时 ;只在 auto 模式下生效                                   | -       |
+| play   | -    | 开始倒计时,倒计时结束时调用 promise 的 resole; | promise |
+| pause  | -    | 暂停倒计时 ;                             | -       |
 
 ## Manual Mode Methods
 
 | 方法名  | 参数 | 说明                                   | 返回 |
 | ------- | ---- | -------------------------------------- | ---- |
-| setTime | -    | 设置显示的时间 ;只在 manual 模式下生效 | -    |
+| setTime | -    | 设置显示的时间 ; | -    |
 
 ## Static Mode Methods
 
 | 方法名        | 参数 | 说明                                   | 返回 |
 | ------------- | ---- | -------------------------------------- | ---- |
-| setStaticTime | -    | 设置显示的时间 ;只在 static 模式下生效 | -    |
+| setStaticTime | -    | 设置显示的时间 ; | -    |
 
 ## Auto Mode Events
 
